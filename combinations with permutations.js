@@ -4,35 +4,35 @@ function getCombinationsWithPermutations(arrP, m){
     var n = arr.length - 1;
 
     var results = [];
-	var j = null;
+    var j = null;
 
-	do{
-		let result = [];
+    do{
+        let result = [];
 
-		for (var i = 1; i <= m; i++) {
-			result.push(arr[i]);
-		}
+        for (var i = 1; i <= m; i++) {
+            result.push(arr[i]);
+        }
 
-		var perms = getPermutations(result);
+        var perms = getPermutations(result);
         results = results.concat(perms);
 
-		j = m;
+        j = m;
 
-		while(j>0  && arr[j] >= n+j-m){
-			j = j - 1;
-		}
+        while(j>0  && arr[j] >= n+j-m){
+            j = j - 1;
+        }
 
-		if(j != 0){
-			arr[j]++;
+        if(j != 0){
+          	arr[j]++;
 
-			for (var k = j + 1; i < m; i++) {
-				arr[k] = arr[k - 1] + 1;
-			}
-		}
+          	for (var k = j + 1; i < m; i++) {
+          	     arr[k] = arr[k - 1] + 1;
+          	}
+        }
 
-	}while (j != 0);
+    }while (j != 0);
 
-	return results;
+    return results;
 }
 
 function getPermutations(arrP) {
