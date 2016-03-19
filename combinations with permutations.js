@@ -23,11 +23,11 @@ function getCombinationsWithPermutations(arrP, m){
         }
 
         if(j != 0){
-          	arr[j]++;
+            arr[j]++;
 
-          	for (var k = j + 1; i < m; i++) {
-          	     arr[k] = arr[k - 1] + 1;
-          	}
+            for (var k = j + 1; i < m; i++) {
+                arr[k] = arr[k - 1] + 1;
+            }
         }
 
     }while (j != 0);
