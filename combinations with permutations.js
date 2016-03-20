@@ -1,10 +1,12 @@
-function getCombinationsWithPermutations(arrP, m){
-    var arr = arrP.slice(0);
-    arr.unshift(null);
-    var n = arr.length - 1;
+function getCombinationsWithPermutations(n, m) {
+    var arr = new Array(m);
+    var j = null, k = null, i = null;
+
+    for (var i = 1; i <= m; i++) {
+        arr[i] = i;
+    }
 
     var results = [];
-    var j = null;
 
     do{
         let result = [];
@@ -13,20 +15,19 @@ function getCombinationsWithPermutations(arrP, m){
             result.push(arr[i]);
         }
 
-        var perms = getPermutations(result);
-        results = results.concat(perms);
+        results.push(getPermutations(result).join(' '));
 
         j = m;
 
-        while(j>0  && arr[j] >= n+j-m){
-            j = j - 1;
+        while (j>0 && arr[j] >= n+j-m){
+            j--
         }
 
         if(j != 0){
             arr[j]++;
 
-            for (var k = j + 1; i < m; i++) {
-                arr[k] = arr[k - 1] + 1;
+            for (var k = j+1; k <= m; k++) {
+                arr[k] = arr[k-1]+1;
             }
         }
 
@@ -82,6 +83,6 @@ function getPermutations(arrP) {
     return results;
 }
 
-var res = getCombinationsWithPermutations([1,2,3],2);
+var res = getCombinationsWithPermutations(4,2);
 
-console.log(res);
+console.log(res.join(' '));
