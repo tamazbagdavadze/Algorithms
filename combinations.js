@@ -1,38 +1,41 @@
-function getCombinations(arrP, m){
-    var arr = arrP.slice(0);
-    arr.unshift(null);
-    var n = arr.length - 1;
+function getCombinations(n, m) {
+    var arr = new Array(m);
+    var j = null, k = null, i = null;
+
+    for (var i = 1; i <= m; i++) {
+        arr[i] = i;
+    }
 
     var results = [];
-    var j = null;
 
     do{
         let result = [];
 
         for (var i = 1; i <= m; i++) {
-           result.push(arr[i]);
+            result.push(arr[i]);
         }
 
         results.push(result.join(''));
 
         j = m;
 
-        while(j>0  && arr[j] >= n+j-m){
-            j = j - 1;
+        while (j>0 && arr[j] >= n+j-m){
+            j--
         }
 
         if(j != 0){
             arr[j]++;
 
-            for (var k = j + 1; i < m; i++) {
-                arr[k] = arr[k - 1] + 1;
+            for (var k = j+1; k <= m; k++) {
+                arr[k] = arr[k-1]+1;
             }
         }
+
     }while (j != 0);
 
     return results;
 }
 
-var res = getCombinations([1,2,3], 2);
+var res = f(6,5);
 
 console.log(res);
