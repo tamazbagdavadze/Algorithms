@@ -1,6 +1,11 @@
 function f(m,k){
   var a = new Array(m+1).fill(0);
 
+  if(k == 1){
+      console.log(a.slice(0,m));
+      return;
+  }
+
   while(a[m] == 0){
      console.log(a.slice(0,m));
      a[0]++;
@@ -9,7 +14,7 @@ function f(m,k){
      while(a[j] == k)
      {
         a[j] = 0;
-         a[j+1]++;
+        a[j+1]++;
         j++;
      }
    }
