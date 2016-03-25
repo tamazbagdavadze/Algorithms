@@ -1,6 +1,4 @@
-//TODO check
-
-function f(m,n,k){
+function f(m,k){
   var a = new Array(m+1).fill(0);
 
   while(a[m] == 0){
@@ -15,7 +13,6 @@ function f(m,n,k){
         j++;
      }
    }
-
 }
 
-f(4,6,3);
+f(2, 4);
